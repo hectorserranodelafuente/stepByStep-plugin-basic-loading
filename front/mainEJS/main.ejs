@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+  
+  <meta charset = "UTF-8">
+  
+  <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+  
+  <title>Loading</title>
+  
+  <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+    }
+
+    .loadingText {
+
+        position:absolute;
+        top:10px;
+        left:10px;
+        width: 100%;
+    
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+     @media (min-width: 480px) {
+      
+        .responsive{  
+
+        height:'0px';
+        display:block;
+      
+      }
+
+     
+    }
+
+    
+    @media (max-width: 480px) {
+      
+      .responsive{
+        
+        height:'0px';
+        display:none;   
+      
+      }
+
+       .loadingText{
+        text-align:center;
+      }
+    
+    }
+
+  </style>
+  <script>
+
+
+
+  </script>
+    
+</head>
+<body>
+
+  <div id="loadingText" class="loadingText"></div>
+  
+  <div id="responsive" class="responsive"></div>
+
+  
+  
+  
+  
+  <% if (environment=='development') { %>
+      <img src="../../public/img/waitLoading.gif" width="200px">
+      <%- include('../renderedHead/head.ejs') %>
+    <% } %>
+
+    <% if (environment=='production') { %>
+      <img src="../../public/img/waitLoading.gif" width="200px">
+      <%- include('../renderedHeadProduction/head.ejs') %>
+    <% } %>
+
+    <% if (environment=='cordova') { %>
+      <img src="../../img/waitLoading.gif" width="200px">
+      <%- include('../renderedHeadCordova/head.ejs') %>
+    <% } %>
+
+</body>
+</html>
